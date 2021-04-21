@@ -18,7 +18,7 @@ func main() {
 	router := gin.Default()
 	RegistRouter(router)
 
-	router.StaticFS("/web", http.Dir("F:/Git_Code/docker/layuimini"))
+	router.StaticFS("/web", http.Dir("/Users/xhome/web_api/html"))
 
 	log.Println(Version, Time, GitLog)
 	log.Println("启动后端服务，端口：")
