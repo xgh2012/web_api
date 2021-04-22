@@ -110,12 +110,17 @@ func (l *Index) init(ctx *gin.Context) {
           "target": "_self",
           "child": [
             {
-              "title": "数据录入",
-              "href": "page/data/add.html",
+              "title": "场所列表",
+              "href": "page/data/list.html",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },
             {
+              "title": "数据录入",
+              "href": "page/data/add.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },{
               "title": "数据审核",
               "href": "page/menu.html",
               "icon": "fa fa-tachometer",
