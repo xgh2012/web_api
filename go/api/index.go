@@ -1,13 +1,14 @@
 package api
 
 import (
+	"demo/api/adapts"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 type Index struct {
-
 }
+
 func (l *Index) Router(router *gin.Engine) {
 	r := router.Group("/api/index/")
 
@@ -48,91 +49,6 @@ type Menu struct {
 
 //获取验证码
 func (l *Index) init(ctx *gin.Context) {
-	init :=`{
-  "homeInfo": {
-    "title": "首页",
-    "href": "page/welcome-1.html?t=1"
-  },
-  "logoInfo": {
-    "title": "LAYUI MINI",
-    "image": "images/logo.png",
-    "href": ""
-  },
-  "menuInfo": [
-    {
-      "title": "常规管理",
-      "icon": "fa fa-address-book",
-      "href": "",
-      "target": "_self",
-      "child": [
-        {
-          "title": "系统设置",
-          "href": "",
-          "icon": "fa fa-home",
-          "target": "_self",
-          "child": [
-            {
-              "title": "用户管理",
-              "href": "page/welcome-1.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            },
-            {
-              "title": "角色管理",
-              "href": "page/welcome-2.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            },
-            {
-              "title": "权限管理",
-              "href": "page/welcome-3.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            },
-            {
-              "title": "菜单管理",
-              "href": "page/welcome-3.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            },
-            {
-              "title": "操作日志",
-              "href": "page/welcome-3.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            }
-          ]
-        },
-		{
-          "title": "数据管理",
-          "href": "",
-          "icon": "fa fa-home",
-          "target": "_self",
-          "child": [
-            {
-              "title": "场所列表",
-              "href": "page/data/list.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            },
-            {
-              "title": "数据录入",
-              "href": "page/data/add.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            },{
-              "title": "数据审核",
-              "href": "page/menu.html",
-              "icon": "fa fa-tachometer",
-              "target": "_self"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}`
-
-	ctx.String(http.StatusOK,init)
+	systemInit := new(adapts.SystemInit).GetSystemInit()
+	ctx.JSON(http.StatusOK, systemInit)
 }
-
