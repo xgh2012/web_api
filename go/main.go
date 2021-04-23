@@ -2,6 +2,7 @@ package main
 
 import (
 	"demo/api"
+	"demo/api/controlls"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -9,7 +10,7 @@ import (
 
 const (
 	Version = "1.0.1"
-	Time    = "2021年3月2日14:35:31"
+	Time    = "2021年3月2日14:35:31 "
 	GitLog  = "719c50c16d045ce207cfbb02a2a3047eb09591bd"
 )
 
@@ -32,6 +33,7 @@ func RegistRouter(router *gin.Engine) {
 	router.GET("/api/ok", func(ctx *gin.Context) {
 		ctx.String(200, "OK")
 	})
+	new(controlls.System).Router(router)
 	new(api.Login).Router(router)
 	new(api.Index).Router(router)
 }
