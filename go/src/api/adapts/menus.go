@@ -1,8 +1,6 @@
 package adapts
 
-import (
-	"demo/api/models"
-)
+import ()
 
 // 初始化结构体
 type SystemInit struct {

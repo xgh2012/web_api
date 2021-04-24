@@ -6,8 +6,8 @@ import (
 )
 
 type Login struct {
-
 }
+
 func (l *Login) Router(router *gin.Engine) {
 	r := router.Group("/api/login/")
 
@@ -18,4 +18,3 @@ func (l *Login) Router(router *gin.Engine) {
 func (l *Login) captcha(ctx *gin.Context) {
 	utils.GetCaptcha(ctx)
 }
-

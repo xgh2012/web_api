@@ -18,6 +18,8 @@
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
+
+<script src="../web/js/common.js?v=2.0.0" charset="utf-8"></script>
 <script>
     layui.use(['table', 'treetable'], function () {
         var $ = layui.jquery;
@@ -28,20 +30,20 @@
         layer.load(2);
         treetable.render({
             treeColIndex: 1,
-            treeSpid: -1,
-            treeIdName: 'authorityId',
-            treePidName: 'parentId',
+            treeSpid: 0,
+            treeIdName: 'id',
+            treePidName: 'pid',
             elem: '#munu-table',
-            url: 'system/menu',
+            url: '/api/system/menu',
             page: false,
             cols: [[
                 {type: 'numbers'},
-                {field: 'authorityName', minWidth: 200, title: '权限名称'},
-                {field: 'authority', title: '权限标识'},
-                {field: 'menuUrl', title: '菜单url'},
-                {field: 'orderNumber', width: 80, align: 'center', title: '排序号'},
+                {field: 'title', minWidth: 200, title: '菜单名称'},
+                {field: 'icon', title: '权限标识'},
+                {field: 'href', title: '菜单url'},
+                {field: 'sort', width: 80, align: 'center', title: '排序号'},
                 {
-                    field: 'isMenu', width: 80, align: 'center', templet: function (d) {
+                    field: 'create_at', width: 80, align: 'center'/*, templet: function (d) {
                         if (d.isMenu == 1) {
                             return '<span class="layui-badge layui-bg-gray">按钮</span>';
                         }
@@ -50,7 +52,7 @@
                         } else {
                             return '<span class="layui-badge-rim">菜单</span>';
                         }
-                    }, title: '类型'
+                    }*/, title: '类型'
                 },
                 {templet: '#auth-state', width: 120, align: 'center', title: '操作'}
             ]],

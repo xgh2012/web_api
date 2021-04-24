@@ -36,7 +36,14 @@ type MenuTreeList struct {
 func (m *SystemMenu) GetMenuList(menus []int) []*MenuTreeList {
 	var menuList []SystemMenu
 	_ = conf.Engine.Where("state=1").OrderBy("sort asc").Find(&menuList)
+
 	return m.buildMenuChild(0, menuList, menus)
+}
+
+func (m *SystemMenu) GetAll() []SystemMenu {
+	var menuList []SystemMenu
+	_ = conf.Engine.OrderBy("sort asc").Find(&menuList)
+	return menuList
 }
 
 //递归获取子菜单

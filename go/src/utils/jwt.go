@@ -8,7 +8,7 @@ import (
 var jwtSecret = []byte("<44#!@!99>")
 
 type JwtService struct {
-	Token      string
+	Token string
 	jwt.StandardClaims
 }
 

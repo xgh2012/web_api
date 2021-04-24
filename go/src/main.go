@@ -1,8 +1,6 @@
 package main
 
 import (
-	"demo/api"
-	"demo/api/controlls"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"

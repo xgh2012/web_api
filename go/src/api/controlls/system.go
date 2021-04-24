@@ -1,7 +1,6 @@
 package controlls
 
 import (
-	"demo/api/models"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"

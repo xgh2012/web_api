@@ -20,7 +20,7 @@ type Permissions struct {
 func (permission *Permissions) Get() []int {
 	//用户->角色
 	user := &models.SystemUsers{
-		UserName: "admin",
+		Id: permission.Uid,
 	}
 	user.One()
 	if user.Id == 0 {
